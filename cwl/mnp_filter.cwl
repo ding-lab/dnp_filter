@@ -4,7 +4,7 @@ $namespaces:
   sbg: 'https://www.sevenbridges.com/'
 id: mnp_filter
 baseCommand:
-  - python
+  - /usr/local/bin/python
   - /opt/mnp_filter/src/mnp_filter.py
 inputs:
   - id: input
