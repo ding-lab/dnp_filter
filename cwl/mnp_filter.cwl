@@ -1,7 +1,5 @@
 class: CommandLineTool
 cwlVersion: v1.0
-$namespaces:
-  sbg: 'https://www.sevenbridges.com/'
 id: mnp_filter
 baseCommand:
   - /usr/local/bin/python
@@ -13,7 +11,7 @@ inputs:
       position: 0
       prefix: '--input'
     label: VCF file
-  - id: bam
+  - id: tumor_bam
     type: File
     inputBinding:
       position: 0
@@ -21,22 +19,19 @@ inputs:
     label: tumor bam
     secondaryFiles:
       - .bai
-  - id: output
-    type: string
-    inputBinding:
-      position: 0
-      prefix: '--output'
-    label: output VCF file name
 outputs:
   - id: filtered_VCF
     type: File
     outputBinding:
-      glob: $(inputs.output)
-label: mnp_filter
+      glob: MNP_combined.vcf
+label: MNP_filter
+arguments:
+  - position: 0
+    prefix: '--output'
+    valueFrom: MNP_combined.vcf
 requirements:
+  - class: ResourceRequirement
+    ramMin: 2000
   - class: DockerRequirement
     dockerPull: 'dinglab2/mnp_filter:20191211'
   - class: InlineJavascriptRequirement
-  - class: ResourceRequirement
-    ramMin: 2000
-
