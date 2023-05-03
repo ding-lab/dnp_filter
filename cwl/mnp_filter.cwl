@@ -31,7 +31,7 @@ arguments:
     valueFrom: MNP_combined.vcf
 requirements:
   - class: ResourceRequirement
-    ramMin: 2000
+    ramMin: 4000
   - class: DockerRequirement
     dockerPull: 'dinglab2/mnp_filter:20191211'
   - class: InlineJavascriptRequirement
