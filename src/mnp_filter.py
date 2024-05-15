@@ -30,7 +30,7 @@ def search_multiple_snp(vcf_file):
                 else:
                     if len(current_list) >= 8: # at least two adjacent SNPs
                         snps_list.append(current_list)
-                        print(current_list, file=sys.stderr)
+#                        print(current_list, file=sys.stderr)
                         current_list = []
                         current_list.append(record.CHROM)
                         current_list.append(record.POS)
@@ -47,7 +47,7 @@ def search_multiple_snp(vcf_file):
 
     if len(current_list) >= 8:
         snps_list.append(current_list)
-        print(current_list, file=sys.stderr) 
+#        print(current_list, file=sys.stderr) 
 
     return snps_list
 
@@ -158,11 +158,11 @@ def validate_multiple_snp(bam_file, adjacent_snps_list):
 
     if read_support_MNP_number > read_not_support_MNP_number:
         mnp = (chrom, pos_list)
-        print("{} -> Reads: Total = {}, Ref/Alt= {}, Alt Supporting {} = {}, Mixed Ref/Alt {}, Uninformative Ref {} = {}. {}: PASS.".format(mnp, total_read_number, total_read_number_alt_ref, alt_bases, read_support_MNP_number, not_support_MNP_dic, ref_bases, ref_bases_number, variant_type), file=sys.stderr)
+#        print("{} -> Reads: Total = {}, Ref/Alt= {}, Alt Supporting {} = {}, Mixed Ref/Alt {}, Uninformative Ref {} = {}. {}: PASS.".format(mnp, total_read_number, total_read_number_alt_ref, alt_bases, read_support_MNP_number, not_support_MNP_dic, ref_bases, ref_bases_number, variant_type), file=sys.stderr)
         return mnp
     else:
         mnp = (chrom, pos_list)
-        print("{} -> Reads: total = {}, Ref/Alt= {}, Alt Supporting {} = {}, Mixed Ref/Alt {}, Uninformative Ref {} = {}. {}: NOT PASS.".format(mnp, total_read_number, total_read_number_alt_ref, alt_bases, read_support_MNP_number, not_support_MNP_dic, ref_bases, ref_bases_number, variant_type), file=sys.stderr)
+#        print("{} -> Reads: total = {}, Ref/Alt= {}, Alt Supporting {} = {}, Mixed Ref/Alt {}, Uninformative Ref {} = {}. {}: NOT PASS.".format(mnp, total_read_number, total_read_number_alt_ref, alt_bases, read_support_MNP_number, not_support_MNP_dic, ref_bases, ref_bases_number, variant_type), file=sys.stderr)
         return
 
 def is_first_snp(mnp_list, chrom, pos):

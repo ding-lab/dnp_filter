@@ -1,0 +1,6 @@
+Branch v2024 is a development branch for performance and other reasons
+* reduce verbosity of output
+* Run in context of nextflow
+* detailed performance evaluation based on GDAN work
+
+
